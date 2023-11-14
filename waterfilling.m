@@ -12,22 +12,25 @@ function [psi,mu,K] = waterfilling(phi,Ptx)
 % K: number of active (non-zero) data streams K
 
 phi = phi(:);
-phi= sort(phi,'descend');
+%phi= sort(phi,'descend');
 phi_inv = 1./phi(:);
+phi_inv = sort(phi_inv, 'descend');
+
 %find mu optimal and K
  for K=1:length(phi_inv)
      mu = 1/K*(Ptx+sum(phi_inv(1:K)));
      if K==length(phi_inv)|| mu<phi_inv(K+1)
-         print(K);print(mu);
+         %print(K);
+         %print(mu);
          break;
      end    
  end
+ 
 %find psi
 psi = zeros(size(phi));
+
 for i = 1:K
-    psi(i) = mu - phi_inv(i);
+    psi(i) = max(0, (mu - phi_inv(i)));
 end
 
-psi = diag(psi);
-
-% TODO
+%psi = diag(psi);
