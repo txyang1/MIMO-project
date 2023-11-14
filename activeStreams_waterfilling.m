@@ -9,7 +9,8 @@ function [ Ptx ] = activeStreams_waterfilling( phi )
 % Ptx: vector of power values (size N-1x1) for which the power allocation
 % switches from K to K+1 active streams
 
-inv_phi = sort(1./phi); %invert the vector phi first, then sort it in non-increasing manner
+phi = sort(phi,'descend'); %sort it in non-increasing manner
+inv_phi = 1./phi; %invert the vector phi 
 N = numel(phi); %get number of elements in vector phi
 K = 1:(N-1);
 Ptx = zeros(N-1,1); %ready to save data
