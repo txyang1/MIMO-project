@@ -28,21 +28,19 @@ R_zf_mmse      = zeros(1,no_Ptx);
 % Calculation of the achievable rates
 % Function handle for rate calculation
 rate = @(psi) sum(log2(1+phi.*psi));
-% TODO
-for i = 1:numel(Ptx)%calculate psi for each Ptx
-    [psi_wat,~,~] = waterfilling(phi,Ptx(i));
-    R_waterfilling(i) = rate(psi_wat);
 
-   
-    [psi_uni,K] = uniform_rate(phi,Ptx(i));
-    R_uniform(i) = rate(psi_uni);
+for i = 1:numel(Ptx) %calculate for each Ptx value
+    [psi_waterfilling,~,~] = waterfilling(phi,Ptx(i));
+    R_waterfilling(i) = rate(psi_waterfilling);
 
-    psi_zf  = zf_mmseallocation( phi, Ptx(i));
-    R_zf_mmse(i) = rate(psi_zf);
+    [psi_uniform,~] = uniform_rate(phi,Ptx(i));
+    R_uniform(i) = rate(psi_uniform);
+
+    psi_zf_mmse = zf_mmseallocation(phi,Ptx(i));
+    R_zf_mmse(i) = rate(psi_zf_mmse);
 end
 
 % Calculation of the the transmit powers (in dB) where the number of streams switches from K to K+1
-% TODO
 streampower_waterfilling = activeStreams_waterfilling(phi);
 
 streampower_uniform = [];
@@ -50,18 +48,14 @@ for i=1:numel(Ptx)-1
     [~,k1] = uniform_rate(phi,Ptx(i));
     [~,k2] = uniform_rate(phi,Ptx(i+1));
     if k2>k1
-       streampower_uniform = [streampower_uniform,Ptx(i+1)];
+        streampower_uniform = [streampower_uniform,Ptx(i+1)];
     end
 end
 
 streampowerdB_waterfilling = pow2db(streampower_waterfilling);
 streampowerdB_uniform = pow2db(streampower_uniform);
 
-
-
 % Calculation of the corresponding rates to the switching powers from K to K+1
-% TODO
-
 streamrate_waterfilling = zeros(1,length(streampower_waterfilling));
 for i=1:length(streampower_waterfilling)
     streamrate_waterfilling(i) = rate(waterfilling(phi,streampower_waterfilling(i)));
@@ -94,7 +88,8 @@ grid on;
 %        'o' for waterfilling
 %        's' for uniform
 hold on;
-% TODO
 plot(streampowerdB_waterfilling,streamrate_waterfilling,'Color','k','LineStyle','none','Marker','o','LineWidth',2);
 plot(streampowerdB_uniform,streamrate_uniform,'Color','m','LineStyle','none','Marker','s','LineWidth',2);
 hold off;
+
+%Team members: Tian Yu, Tingxin Yang
