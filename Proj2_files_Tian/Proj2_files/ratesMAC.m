@@ -23,7 +23,7 @@ H2 = H(:,:,2);
 
 Rsum = real(log2(det(eye(M)+H1*Q1*H1'+H2*Q2*H2')));
 R1 = real(log2(det(eye(M)+H1*Q1*H1')));
-R2 = real(log2(det(eye(M)+H2*Q1*H2')));
+R2 = real(log2(det(eye(M)+H2*Q2*H2')));%%%%Q2
 
 r_A = [Rsum-R2;R2];
 r_B = [R1;Rsum-R1];
