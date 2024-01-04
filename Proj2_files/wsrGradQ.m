@@ -25,10 +25,10 @@ Q2 = Q(:,:,2);
 if w(1)>w(2)
     V(:,:,1) = ((w(1)-w(2))*H1'*inv(eye(M)+H1*Q1*H1')*H1+w(2)*H1'*inv(eye(M)+H2*Q2*H2'+H1*Q1*H1')*H1)*log2(exp(1));
     V(:,:,2) = log2(exp(1))*w(2)*H2'*inv(eye(M)+H1*Q1*H1'+H2*Q2*H2')*H2;
-else
+elseif w(2)>w(1)
     V(:,:,1) = ((w(2)-w(1))*H2'*inv(eye(M)+H2*Q2*H2')*H2+w(1)*H2'*inv(eye(M)+H1*Q1*H1'+H2*Q2*H2')*H2)*log2(exp(1));
     V(:,:,2) = log2(exp(1))*w(1)*H1'*inv(eye(M)+H2*Q2*H2'+H1*Q1*H1')*H1;
 end
 
-
+%Team members: Tingxin Yang, Tian Yu
 
