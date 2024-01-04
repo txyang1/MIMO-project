@@ -31,3 +31,5 @@ K = find(phi_sort-mu_arr>0,1,'last');
 % compute mu and psi
 mu = mu_arr(K);
 psi = max(zeros(N,1), phi_sort -mu_arr);
+
+%Team members: Tingxin Yang, Tian Yu
