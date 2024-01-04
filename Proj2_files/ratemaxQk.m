@@ -19,3 +19,4 @@ phi = real(eig(Xk)); %eigenvalues
 Qk = V*diag(psi)*V';
 Ck = real(log2(det(eye(N)+Xk*Qk)));
 
+%Team members: Tingxin Yang, Tian Yu
