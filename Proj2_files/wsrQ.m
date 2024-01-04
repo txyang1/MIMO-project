@@ -24,3 +24,5 @@ if w(1) > w(2)
 elseif w(2) > w(1)
     Rwsum = real((w(2)-w(1))*log2(det(eye(M)+H2*Q2*H2'))+w(1)*log2(det(eye(M)+H1*Q1*H1'+H2*Q2*H2')));
 end
+
+%Team members: Tingxin Yang, Tian Yu
