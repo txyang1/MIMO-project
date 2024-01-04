@@ -29,7 +29,6 @@ R = zeros(2, 2*S);
                 X = H(:,:,i)' * H(:,:,i);
                 [Q4(:,:,i), ~] = ratemaxQk(X, P(i));
             end
-%Team members: Tingxin Yang, Tian Yu
             [R1, ~] = ratesMAC(Q4, H);
             R(:,s:s+1)=R1;
         
@@ -47,7 +46,7 @@ R = zeros(2, 2*S);
 
 end
 
-       
+%Team members: Tingxin Yang, Tian Yu       
 
 
 
