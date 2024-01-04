@@ -30,6 +30,8 @@ while(ii <= maxiter)
     % ToDo: Determine update for Q1 and Q2 and achievable sum rate after
     % the update
     Q1_tmp = ratemaxQk(H(:,:,1)'*inv((eye(M)+H(:,:,2)*Q2*H(:,:,2)'))*H(:,:,1), P(1));
+
+    %Team members: Tingxin Yang, Tian Yu
     Q2_tmp = ratemaxQk(H(:,:,2)'*inv((eye(M)+H(:,:,1)*Q1*H(:,:,1)'))*H(:,:,2), P(2));
     
     Rsum(ii) = real(log2(det(eye(M) + H(:,:,1)*Q1_tmp*H(:,:,1)' + H(:,:,2)*Q2_tmp*H(:,:,2)')));
