@@ -26,3 +26,5 @@ C2 = real(log2(det(eye(M) + H2*Q2*H2')));
 r_A = [Rsum-C2, C2].';
 r_B = [C1, Rsum-C1].';
 R = [r_A, r_B];
+
+%Team members: Tingxin Yang, Tian Yu
