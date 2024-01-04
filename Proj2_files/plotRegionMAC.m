@@ -20,3 +20,5 @@ r_C = [R_sort(1,end); 0];
 R_all = [r_D, R_sort, r_C];
 
 plot(R_all(1,:),R_all(2,:),'Marker','square');
+
+%Team members: Tingxin Yang, Tian Yu
