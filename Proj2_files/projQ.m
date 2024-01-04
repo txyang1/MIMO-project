@@ -30,7 +30,7 @@ phi2 = real(eig(Qp2));
 [psi2,~,~] = waterspilling(phi2,P);
 Q(:,:,2)= U2*diag(psi2)*U2';
 
-
+%Team members: Tingxin Yang, Tian Yu
 
 
 
