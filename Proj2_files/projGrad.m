@@ -31,3 +31,5 @@ end
 
 xOpt = x;
 fOpt = fval;
+
+%Team members: Tingxin Yang, Tian Yu
